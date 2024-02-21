@@ -30,13 +30,21 @@ sed -i "/$delete/d" students-list_1023.txt
 }
 
 update_student_record() {
-#update students records using student id
-echo "Enter student id:"
-read update
+    # Update students records using student id
+    echo "Enter student id:"
+    read update
 
-sed -i "s/^$update[^,]*/$update,$newEmail,$newAge/" students-list_1023.txt
+    # ask for the new email and age
+    echo "Enter new student email:"
+    read newEmail
 
+    echo "Enter new student age:"
+    read newAge
+
+    # Update the record in the file
+    sed -i "s/^$update[^,]*/$update,$newEmail,$newAge/" students-list_1023.txt
 }
+
 
 # Main menu loop
 while true; do

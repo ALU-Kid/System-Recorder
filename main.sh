@@ -38,22 +38,36 @@ sed -i "s/^$update[^,]*/$update,$newEmail,$newAge/" students-list_1023.txt
 
 }
 
-#Main menu
+# Main menu loop
 while true; do
-    echo "1. Create student record"
-    echo "2. View all students"
-    echo "3. Delete student record"
-    echo "4. Update student record"
+    echo "Main Menu:"
+    echo "1. Create a new student record"
+    echo "2. View all student records"
+    echo "3. Delete a student record"
+    echo "4. Update a student record"
     echo "5. Exit"
-    read -p "Enter your choice: " choice
-    case $choice in
-        1) create_student_record;;
-        2) view_student_records;;
-        3) delete_student_record;;
-        4) update_student_record;;
-        5) echo "Exiting..."; exit;;
-        *) echo "Invalid choice. Please enter a number between 1 and 5.";;
-    esac
 
-#exit the application
+    read -p "Enter your choice (1-5): " choice
+
+    case $choice in
+        1) 
+            create_student_record
+            ;;
+        2) 
+            view_student_records
+            ;;
+        3) 
+            delete_student_record
+            ;;
+        4) 
+            update_student_record
+            ;;
+        5) 
+            echo "Exiting..."
+            exit
+            ;;
+        *)
+            echo "Invalid choice. Please enter a number between 1 and 5."
+            ;;
+    esac
 done

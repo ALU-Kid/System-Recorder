@@ -13,4 +13,5 @@ destination=/summative/1023-2024j
 sshpass -p "$password" scp -r "$source_dir" "$username@$host:$destination"
 
 # Test if backup was successful
-ssh $remote_user@$remote_host "if [ -d \"$remote_dir/$source_dir\" ]; then echo 'Backup successful'; else echo 'Backup failed'; fi"
+ssh $username@$host "if [ -d \"$destination/$source_dir\" ]; then echo 'Backup successful'; else echo 'Backup failed'; fi"
+

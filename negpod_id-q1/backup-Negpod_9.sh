@@ -13,7 +13,7 @@ destination="/summative/1023-2024j"
 output_file=$(mktemp)
 
 # Use ssh to run the backup test on the remote server
-ssh -o "PasswordAuthentication=no" -o "PubkeyAuthentication=yes" -o "StrictHostKeyChecking=no" -i <path_to_private_key> "$username@$host" "if [ -d \"$destination/$source_dir\" ]; then echo 'Backup successful'; else echo 'Backup failed'; fi" > "$output_file"
+ssh -o "PasswordAuthentication=no" -o "PubkeyAuthentication=yes" -o "StrictHostKeyChecking=no" -i ~/.ssh/id_rsa "$username@$host" "if [ -d \"$destination/$source_dir\" ]; then echo 'Backup successful'; else echo 'Backup failed'; fi" > "$output_file"
 
 # Check the output of the backup test
 if grep -q 'Backup successful' "$output_file"; then

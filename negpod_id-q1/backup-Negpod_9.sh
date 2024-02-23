@@ -9,9 +9,18 @@ username="64293e56bc62"
 password="328d3b338a4ced526c9a"
 destination="/summative/1023-2024j"
 
-# Use scp to copy the source directory to the remote location
-sshpass -p "$password" scp -r "$source_dir" "$username@$host:$destination"
+# Create a temporary file to store the output of the backup test
+output_file=$(mktemp)
 
-# Test if backup was successful
-ssh $username@$host "if [ -d \"$destination/$source_dir\" ]; then echo 'Backup successful'; else echo 'Backup failed'; fi"
+# Use ssh to run the backup test on the remote server
+ssh -o "PasswordAuthentication=no" -o "PubkeyAuthentication=yes" -o "StrictHostKeyChecking=no" -i <path_to_private_key> "$username@$host" "if [ -d \"$destination/$source_dir\" ]; then echo 'Backup successful'; else echo 'Backup failed'; fi" > "$output_file"
 
+# Check the output of the backup test
+if grep -q 'Backup successful' "$output_file"; then
+    echo 'Backup successful'
+else
+    echo 'Backup failed'
+fi
+
+# Remove the temporary output file
+rm "$output_file"

@@ -11,3 +11,6 @@ destination=/summative/1023-2024j
 
 # Use scp to copy the source directory to the remote location
 sshpass -p "$password" scp -r "$source_dir" "$username@$host:$destination"
+
+# Test if backup was successful
+ssh $remote_user@$remote_host "if [ -d \"$remote_dir/$source_dir\" ]; then echo 'Backup successful'; else echo 'Backup failed'; fi"

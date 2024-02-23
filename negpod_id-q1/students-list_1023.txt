@@ -1,6 +1,0 @@
-i.rutazinda@alustudent.com,18,123
-5,rrrr,ggf
-5,5,5
-333,333,dddd
-dddd,dddd,ddd
-kkkk,kkkk,kkkk

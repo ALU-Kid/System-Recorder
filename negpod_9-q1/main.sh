@@ -1,5 +1,5 @@
 #!/bin/bash
-#creating student information 
+#creating student informations 
 
 create_student_record() {
 echo "Enter student email:"

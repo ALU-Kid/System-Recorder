@@ -34,7 +34,7 @@ update_student_record() {
     echo "Enter student id:"
     read update
 
-    # ask for the new email and age
+    # request for the new email and age
     echo "Enter new student email:"
     read newEmail
 

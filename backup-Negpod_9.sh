@@ -11,5 +11,5 @@ remote_dir="/summative/1023-2024j"
 # Use scp to complete the backup
 scp -r $source_dir $remote_user@$remote_host:$remote_dir
 
-# Test if backup was successful
+# Verify whether the backup was successful
 ssh $remote_user@$remote_host "if [ -d \"$remote_dir/$source_dir\" ]; then echo 'Backup successful'; else echo 'Backup failed'; fi"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define source directory
-source_dir="negpod_id-q1"
+source_dir="negpod_9-q1"
 
 # Define remote server details
 remote_user="64293e56bc62"

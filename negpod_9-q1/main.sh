@@ -30,7 +30,7 @@ sed -i "/$delete/d" students-list_1023.txt
 }
 
 update_student_record() {
-    # Update students records using student id
+    # Using student id , update the student records
     echo "Enter student id:"
     read update
 
